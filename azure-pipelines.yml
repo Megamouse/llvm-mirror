@@ -63,15 +63,15 @@ jobs:
   - task: GitHubRelease@1
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     inputs:
-      gitHubConnection: RPCS3
-      repositoryName: RPCS3/llvm-mirror
+      gitHubConnection: LLVM-Token
+      repositoryName: Megamouse/llvm-mirror
       action: edit # Options: create, edit, delete
       target: '$(Build.SourceVersion)' # Required when action == Create || Action == Edit
       tagSource: auto # Required when action == Create# Options: auto, manual
       #tagPattern: # Optional
       tag: 'custom-build-win-19.1.7' # Required when action == Edit || Action == Delete || TagSource == Manual
       title: 'Windows Build 19.1.7' # Optional
-      #releaseNotesSource: 'file' # Optional. Options: file, input
+      #releaseNotesSource: 'file' # Optional. Options: file, input 
       #releaseNotesFile: # Optional
       #releaseNotes: # Optional
       assets: 'llvm_out/build/llvmlibs_mt.*' # Optional
